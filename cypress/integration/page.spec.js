@@ -110,17 +110,17 @@ describe('Clock', () => {
 
     it('should print new name with console.debug each time it is updated', () => {
       cy.tick(3300);
-      cy.get('@console.debug').should('be.calledOnceWithExactly', 'Renamed from Clock-0 to Clock-4900');
+      cy.get('@console.debug').should('be.calledOnceWithExactly', 'Renamed to Clock-4900');
 
       cy.tick(3300);
       cy.get('@console.debug')
         .should('have.callCount', 2)
-        .and('be.calledWith', 'Renamed from Clock-4900 to Clock-8200');
+        .and('be.calledWith', 'Renamed to Clock-8200');
 
       cy.tick(3300);
       cy.get('@console.debug')
         .should('have.callCount', 3)
-        .and('be.calledWith', 'Renamed from Clock-8200 to Clock-1500');
+        .and('be.calledWith', 'Renamed to Clock-1500');
     });
   });
 
@@ -216,13 +216,13 @@ describe('Clock', () => {
 
       cy.get('@console.debug')
         .should('have.callCount', 1)
-        .and('be.calledWith', 'Renamed from Clock-4900 to Clock-8200');
+        .and('be.calledWith', 'Renamed to Clock-8200');
 
       cy.tick(3300);
 
       cy.get('@console.debug')
         .should('have.callCount', 2)
-        .and('be.calledWith', 'Renamed from Clock-8200 to Clock-1500');
+        .and('be.calledWith', 'Renamed to Clock-1500');
     });
   });
 });
