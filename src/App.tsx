@@ -24,16 +24,13 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     const timerId = window.setInterval(() => {
-      // eslint-disable-next-line
-      console.debug(clockName);
-
       setClockName(getRandomName());
     }, 3300);
 
     return () => {
       window.clearInterval(timerId);
     };
-  }, [clockName]);
+  }, []);
 
   useEffect(() => {
     document.addEventListener('contextmenu', hideClock);
